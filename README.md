@@ -1,0 +1,2 @@
+# discord_faucet_tendermint
+WebHookDiscord
