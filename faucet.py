@@ -1,8 +1,15 @@
 import requests
+from requests.structures import CaseInsensitiveDict
 
-json_data = {
-    'address': 'nois1v5xayfadhn3emtptsyc9nu7zyuyyze9s6d6swm',
-	'denom' : 'unois'
-}
+url = "http://faucet.noislabs.com/credit"
 
-response = requests.post('http://faucet.noislabs.com/credit', json=json_data)
+headers = CaseInsensitiveDict()
+headers["X-Custom-Header"] = "value"
+headers["Content-Type"] = "application/json"
+
+data = '{"address": "nois1l4u3g0w7zqqsk46hw5j56dex9ppcp58mmsfdye","denom": "unois"}'
+
+
+resp = requests.post(url, headers=headers, data=data)
+
+print(resp.status_code)
